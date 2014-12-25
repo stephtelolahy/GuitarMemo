@@ -1,10 +1,10 @@
 package com.telolahy.guitarmemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_layout);
         mModel = new SongModel(this);
         mListView = (ListView) findViewById(R.id.listView1);
         mListView.setOnItemClickListener(this);
@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setQueryHint(getResources().getString(R.string.action_search));
@@ -82,6 +82,10 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Song selectedSong = mAdapter.getItem(i);
-        Log.i("", "selected "+selectedSong.title);
+        Intent intent = new Intent(this, SongActivity.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.putExtra(SongActivity.SONG_FILE_EXTRA, selectedSong.file);
+        intent.putExtra(SongActivity.SONG_TITLE_EXTRA, selectedSong.title);
+        startActivity(intent);
     }
 }

@@ -6,8 +6,10 @@ package com.telolahy.guitarmemo;
 public class Song {
 
     public final String title;
-    
-    public Song(String text) {
-        title = text;
+    public final String file;
+
+    public Song(String title, String file) {
+        this.title = title;
+        this.file = file;
     }
 }

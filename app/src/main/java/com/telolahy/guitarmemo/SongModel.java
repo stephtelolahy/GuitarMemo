@@ -17,8 +17,8 @@ public class SongModel {
         mList = new ArrayList<Song>();
         try {
             String[] list = context.getAssets().list("songs");
-            for (String file: list) {
-                mList.add(new Song(file));
+            for (String file : list) {
+                mList.add(new Song(file.substring(0, file.lastIndexOf('.')), "songs/"+file));
             }
         } catch (IOException e) {
             e.printStackTrace();

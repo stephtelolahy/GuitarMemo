@@ -12,12 +12,13 @@ import java.io.InputStreamReader;
  */
 public class TextUtil {
 
-    public static String readRawTextFile(Context ctx, int resId) {
-        InputStream inputStream = ctx.getResources().openRawResource(resId);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
+    public static String readRawTextFile(Context context, String filePath) {
         StringBuilder text = new StringBuilder();
         try {
+            InputStream inputStream = context.getAssets().open(filePath);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+
             while ((line = reader.readLine()) != null) {
                 text.append(line);
                 text.append('\n');

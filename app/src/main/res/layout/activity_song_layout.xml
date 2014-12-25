@@ -12,7 +12,8 @@
             android:id="@+id/txtRawResource"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:padding="3dip" />
+            android:padding="4dip"
+            android:layout_margin="10dp"/>
     </ScrollView>
 
 </LinearLayout>
