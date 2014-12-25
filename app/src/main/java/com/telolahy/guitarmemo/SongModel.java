@@ -35,7 +35,7 @@ public class SongModel {
 
         ArrayList<Song> resultList = new ArrayList<Song>();
         for (Song element : mList) {
-            if (element.title.contains(key.toLowerCase())) {
+            if (element.title.toLowerCase().contains(key.toLowerCase())) {
                 resultList.add(element);
             }
         }

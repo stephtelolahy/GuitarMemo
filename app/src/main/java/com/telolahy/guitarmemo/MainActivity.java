@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
             @Override
             public boolean onQueryTextChange(String s) {
-                // update listView content
+                reloadListViewWithSongsContainingKey(s);
                 return false;
             }
         });
