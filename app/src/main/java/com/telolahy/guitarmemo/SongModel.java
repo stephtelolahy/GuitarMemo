@@ -2,6 +2,7 @@ package com.telolahy.guitarmemo;
 
 import android.content.Context;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -14,9 +15,14 @@ public class SongModel {
     public SongModel(Context context) {
 
         mList = new ArrayList<Song>();
-        mList.add(new Song("Someone like you - Adele"));
-        mList.add(new Song("All of me - John Legend"));
-        mList.add(new Song("Mon incroyable fiancé - Adeline"));
+        try {
+            String[] list = context.getAssets().list("songs");
+            for (String file: list) {
+                mList.add(new Song(file));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

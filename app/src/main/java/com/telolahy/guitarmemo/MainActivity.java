@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     private ListView mListView;
     private SongModel mModel;
+    private SongAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +67,21 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     private void reloadListViewWithAllSongs() {
 
-        mListView.setAdapter(new SongAdapter(this, R.layout.item_layout, mModel.allSongs()));
+        mAdapter = new SongAdapter(this, R.layout.item_layout, mModel.allSongs());
+        mListView.setAdapter(mAdapter);
 
     }
 
     private void reloadListViewWithSongsContainingKey(String key) {
 
-        mListView.setAdapter(new SongAdapter(this, R.layout.item_layout, mModel.songsWithKey(key)));
+        mAdapter = new SongAdapter(this, R.layout.item_layout, mModel.songsWithKey(key));
+        mListView.setAdapter(mAdapter);
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+        Song selectedSong = mAdapter.getItem(i);
+        Log.i("", "selected "+selectedSong.title);
     }
 }
