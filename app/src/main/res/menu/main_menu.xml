@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
-    <item android:id="@+id/action_search"
-        android:title="@string/action_search"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
         android:icon="@drawable/ic_action_search"
-        yourapp:showAsAction="always|collapseActionView"
-        yourapp:actionViewClass="android.support.v7.widget.SearchView" />
-    <item android:id="@+id/action_overflow"
-        android:title="@string/action_overflow"
+        android:title="@string/action_search"
+        yourapp:actionViewClass="android.support.v7.widget.SearchView"
+        yourapp:showAsAction="always|collapseActionView" />
+    <item
+        android:id="@+id/action_overflow"
         android:icon="@drawable/ic_action_overflow"
-        yourapp:showAsAction="always" />
+        android:title="@string/action_overflow"
+        yourapp:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/refresh"
+                android:title="@string/refresh" />
+            <item
+                android:id="@+id/chords"
+                android:title="@string/chords" />
+        </menu>
+    </item>
 </menu>

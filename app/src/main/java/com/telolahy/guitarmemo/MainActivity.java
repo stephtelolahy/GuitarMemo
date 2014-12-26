@@ -58,9 +58,15 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_overflow) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_overflow:
+                break;
+            case R.id.refresh:
+                break;
+            case R.id.chords:
+                Intent intent = new Intent(this, ChordsActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -83,7 +89,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         Song selectedSong = mAdapter.getItem(i);
         Intent intent = new Intent(this, SongActivity.class);
-        intent.setAction(Intent.ACTION_VIEW);
         intent.putExtra(SongActivity.SONG_FILE_EXTRA, selectedSong.file);
         intent.putExtra(SongActivity.SONG_TITLE_EXTRA, selectedSong.title);
         startActivity(intent);
