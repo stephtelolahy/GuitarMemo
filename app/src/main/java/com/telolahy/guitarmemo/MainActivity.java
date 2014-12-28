@@ -50,6 +50,24 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 return false;
             }
         });
+
+        // When using the support library, the setOnActionExpandListener() method is
+        // static and accepts the MenuItem object as an argument
+        MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                // Do something when collapsed
+                reloadListViewWithAllSongs();
+                return true;  // Return true to collapse action view
+            }
+
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                // Do something when expanded
+                return true;  // Return true to expand action view
+            }
+        });
+
         return true;
     }
 
