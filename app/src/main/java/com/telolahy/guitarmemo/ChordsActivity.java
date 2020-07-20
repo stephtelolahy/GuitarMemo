@@ -1,11 +1,10 @@
 package com.telolahy.guitarmemo;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.webkit.WebView;
+import androidx.appcompat.app.AppCompatActivity;
 
-
-public class ChordsActivity extends ActionBarActivity {
+public class ChordsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
