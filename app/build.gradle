@@ -5,8 +5,8 @@ android {
     compileSdkVersion 35
     defaultConfig {
         applicationId "com.telolahy.guitarmemo"
-        targetSdkVersion 35
-        minSdkVersion 21
+        targetSdk 36
+        minSdk 21
         versionName "1.5.0"
         versionCode 6
     }
