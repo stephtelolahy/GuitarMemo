@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-    compileSdk 35
+    compileSdkVersion 35
     defaultConfig {
         applicationId "com.telolahy.guitarmemo"
-        targetSdk 34
+        targetSdkVersion 35
         minSdkVersion 21
         versionCode 5
         versionName "1.4.0"
